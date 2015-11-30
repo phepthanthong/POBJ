@@ -2,7 +2,7 @@ package pobj.algogen;
 
 public abstract class AbstractIndividu implements IIndividu {
 
-	protected double fitness;
+	protected double fitness = 0;
 
 	public AbstractIndividu() {
 		super();

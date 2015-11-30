@@ -3,7 +3,8 @@
  */
 package pobj.algogen;
 
-import pobj.algogen.doubles.IndividuDouble;
+import pobj.algogen.arith.FonctionCible;
+import pobj.algogen.arith.IndividuExpression;
 
 /**
  * @author TrungHieu
@@ -23,9 +24,13 @@ public class PopulationFactory {
 		//PopulationArray p = new PopulationArray();
 		Population p = new Population();
 		for (int i = 0; i < size; i++ ){
-			IndividuDouble in = new IndividuDouble();
+			IndividuExpression in = new IndividuExpression();
 			p.add(in);
 		}		
 		return p;
+	}
+	
+	public static Environnement createEnvironnement(){
+		return new FonctionCible();
 	}
 }

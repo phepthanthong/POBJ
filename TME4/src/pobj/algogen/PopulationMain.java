@@ -3,7 +3,8 @@
  */
 package pobj.algogen;
 
-import pobj.algogen.doubles.ValeurCible;
+//import pobj.algogen.doubles.ValeurCible;
+//import pobj.arith.EnvEval;
 
 /**
  * @author TrungHieu
@@ -15,14 +16,15 @@ public class PopulationMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		//System.out.println("Premier argument: " + args[0]);		
+		
 		Population pop = PopulationFactory.createRandomPopulation(Integer.parseInt(args[0]));
 		//System.out.println("Les individus de cette population sont: \n" + pop.toString());
-		ValeurCible val = new ValeurCible(0.5);
-		pop.evaluer(val);
+		//ValeurCible val = new ValeurCible(0.5);
+		//Environnement newEnv = PopulationFactory.createEnvironnement();
+		pop.evaluer(PopulationFactory.createEnvironnement());
 		System.out.println(pop);
-		System.out.println("Après Evolution 2222222222");
-		Population newPop = pop.evoluer(val);
+		
+		Population newPop = pop.evoluer(PopulationFactory.createEnvironnement());
 		System.out.println(newPop.toString());
 		
 	}
