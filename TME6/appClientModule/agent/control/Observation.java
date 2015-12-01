@@ -21,7 +21,7 @@ public class Observation {
 	private ContenuCase[] capteurs = new ContenuCase[8];
 
 	/**
-	 * Crée une Observation, c'est à dire l'état des cases environnant la
+	 * Créer une Observation, c'est à dire l'état des cases environnant la
 	 * position fournie dans le labyrinthe. Remplit le tableau de capteurs avec
 	 * les cases perçues dans le labyrinthe. Les cases qui débordent du labyrinthe sont remplies de ANY.
 	 * 
