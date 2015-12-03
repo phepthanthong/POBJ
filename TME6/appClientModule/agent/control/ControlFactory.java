@@ -106,6 +106,32 @@ public class ControlFactory {
 		
 		return new Regle (observation, direction);
 	}
-
-
+	/**
+	 * Créer un controleur qui fait à l'agent le tour du labyrinthe en suivant les murs
+	 */
+	public static IControleur createSmartController(){
+		Controleur c = new Controleur();
+		c.add(new Regle(new Observation("????.???"),Direction.BAS));
+		c.add(new Regle(new Observation("??.?????"),Direction.DROITE));
+		c.add(new Regle(new Observation(".???????"),Direction.HAUT));
+		c.add(new Regle(new Observation("??????.?"),Direction.GAUCHE));
+//		c.add(new Regle(new Observation(" ?.? ? ?"),Direction.DROITE));
+//		c.add(new Regle(new Observation(" ? ?.? ?"),Direction.BAS));
+//		c.add(new Regle(new Observation(" ? ? ?.?"),Direction.GAUCHE));
+//		c.add(new Regle(new Observation(".? ? ? ?"),Direction.HAUT));
+//		
+//		c.add(new Regle(new Observation("##?#####"),Direction.DROITE));
+//		c.add(new Regle(new Observation("####?###"),Direction.BAS));
+//		c.add(new Regle(new Observation("######?#"),Direction.GAUCHE));
+//		c.add(new Regle(new Observation("?#######"),Direction.HAUT));
+//		
+//		c.add(new Regle(new Observation("#? ?????"),Direction.DROITE));
+//		c.add(new Regle(new Observation("??#? ???"),Direction.BAS));
+//		c.add(new Regle(new Observation("????#? ?"),Direction.GAUCHE));
+//		c.add(new Regle(new Observation(" ?????#?"),Direction.HAUT));
+		
+//		System.out.println(c);
+		return c;
+		
+	}
 }

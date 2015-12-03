@@ -5,7 +5,9 @@ import java.io.IOException;
 import agent.control.ControlFactory;
 import agent.control.IControleur;
 import agent.laby.ChargeurLabyrinthe;
+import agent.laby.LabyErroneException;
 import agent.laby.Labyrinthe;
+import agent.laby.VerificationLaby;
 
 /**
  * Classe principale pour tester le comportement des agents dans
@@ -26,11 +28,14 @@ public class SimuMain {
 		int nbRules = 10; // Integer.parseInt(args[2]);
 		try {
 			Labyrinthe laby = ChargeurLabyrinthe.chargerLabyrinthe(labyFile);
-
+			int err = VerificationLaby.corrigerConditions(laby);
+			System.out.println("Nombre d'erreurs fixé: " + err);
 			IControleur sc = ControlFactory.createControleur(nbRules);
 			Simulation sim = new Simulation(laby, sc);
 			System.out.println(sim.mesurePerf(nbSteps));
+			
 			System.out.println(sc);
+			
 
 		} catch (IOException e) {
 			System.out.println("Problème de chargement du labyrinthe"+e);

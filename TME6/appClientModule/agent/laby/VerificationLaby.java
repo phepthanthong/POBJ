@@ -40,21 +40,25 @@ public class VerificationLaby {
 	
 	public static int corrigerConditions(Labyrinthe l){
 		int nbErreur = 0;
-		try {
-			verifierConditions(l);
-			return nbErreur;
-		}
-		catch (LabyErroneException e){
-			if (e instanceof LabyMalEntoureException){
-				l.setContenuCase(e.getCaseErronee(), ContenuCase.MUR);
-				nbErreur++;
+		while(true){
+			try {
+				verifierConditions(l);
+				return nbErreur;
 			}
-			if (e instanceof CaseDepartNonVideException){
-				l.setContenuCase(e.getCaseErronee(), ContenuCase.VIDE);
-				nbErreur++;
+			catch (LabyErroneException e){
+				if (e instanceof LabyMalEntoureException){
+					l.setContenuCase(e.getCaseErronee(), ContenuCase.MUR);
+					System.out.println("Da sua MUR");
+					nbErreur++;					
+				}
+				if (e instanceof CaseDepartNonVideException){
+					l.setContenuCase(e.getCaseErronee(), ContenuCase.VIDE);
+					System.out.println("Da sua VIDE");
+					nbErreur++;
+				}
 			}
 		}
-		return nbErreur;
+		
 		
 	}
 }
